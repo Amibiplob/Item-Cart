@@ -24,10 +24,7 @@
     />
   </head>
   <body>
-    <!--     
-    ------------------------------
-             Header
-    ------------------------------ -->
+    <!-----------Header---------->
     <div class="navbar bg-base-100 shadow-sm">
       <div class="navbar-start">
         <div class="dropdown">
@@ -49,26 +46,56 @@
           </div>
           <ul
             tabindex="-1"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            class="menu menu-lg dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Products</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Contact</a></li>
+            <li class="hover:text-blue-400"><a href="/">Home</a></li>
+            <li class="hover:text-blue-400"><a href="/">Products</a></li>
+            <li class="hover:text-blue-400"><a href="/">About</a></li>
+            <li class="hover:text-blue-400"><a href="/">Contact</a></li>
           </ul>
         </div>
         <a class="btn btn-ghost text-xl">Item Cart</a>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-          <li><a href="/">Home</a></li>
-          <li><a href="/">Products</a></li>
-          <li><a href="/">About</a></li>
-          <li><a href="/">Contact</a></li>
+          <li class="hover:text-blue-700 hover:bg-blue-100 rounded-lg">
+            <a href="/">Home</a>
+          </li>
+          <li class="hover:text-blue-700 hover:bg-blue-100 rounded-lg">
+            <a href="/">Products</a>
+          </li>
+          <li class="hover:text-blue-700 hover:bg-blue-100 rounded-lg">
+            <a href="/">About</a>
+          </li>
+          <li class="hover:text-blue-700 hover:bg-blue-100 rounded-lg">
+            <a href="/">Contact</a>
+          </li>
         </ul>
       </div>
       <div class="navbar-end">
         <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl"></i>
+      </div>
+    </div>
+    <!-----------Banner---------->
+    <div
+      class="relative bg-cover bg-center min-h-[600px] flex items-center"
+      style="background-image: url(&quot;/Assets/banner-image.png&quot;)"
+    >
+      <div class="absolute inset-0 bg-black/60"></div>
+
+      <div class="relative text-white px-6">
+        <h1 class="mb-6 text-4xl md:text-6xl font-bold">
+          Best Collection For You
+        </h1>
+        <p class="mb-6 text-lg text-gray-200">
+          Discover the latest trends in fashion, electronics, and more. Shop
+          with confidence and style at SwiftCart.
+        </p>
+        <button
+          class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold transition"
+        >
+          Shop Now
+        </button>
       </div>
     </div>
   </body>
