@@ -25,7 +25,7 @@
   </head>
   <body>
     <!-----------Header---------->
-    <div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar bg-base-100 shadow-sm container mx-auto">
       <div class="navbar-start">
         <div class="dropdown">
           <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -54,7 +54,7 @@
             <li class="hover:text-blue-400"><a href="/">Contact</a></li>
           </ul>
         </div>
-        <a class="btn btn-ghost text-xl">Item Cart</a>
+        <a class="btn btn-ghost text-xl">ItemCart</a>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
@@ -83,7 +83,7 @@
     >
       <div class="absolute inset-0 bg-black/60"></div>
 
-      <div class="relative text-white px-6">
+      <div class="relative text-white container mx-auto">
         <h1 class="mb-6 text-4xl md:text-6xl font-bold">
           Best Collection For You
         </h1>
@@ -98,5 +98,83 @@
         </button>
       </div>
     </div>
+
+    <!-----------Footer---------->
+    <footer class="bg-slate-800 text-gray-300">
+      <div class="container mx-auto py-16 grid md:grid-cols-4 gap-10">
+        <div>
+          <h2 class="text-2xl font-bold text-indigo-400 mb-4">ItemCart</h2>
+          <p class="text-sm leading-relaxed">
+            Your one-stop shop for all your fashion and lifestyle needs. Quality
+            products, fast delivery, and excellent support.
+          </p>
+        </div>
+
+        <div>
+          <h6 class="text-sm font-semibold text-gray-400 uppercase mb-4">
+            Quick Links
+          </h6>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white">Home</a></li>
+            <li><a href="#" class="hover:text-white">Products</a></li>
+            <li><a href="#" class="hover:text-white">About</a></li>
+            <li><a href="#" class="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h6 class="text-sm font-semibold text-gray-400 uppercase mb-4">
+            Support
+          </h6>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white">FAQ</a></li>
+            <li><a href="#" class="hover:text-white">Shipping</a></li>
+            <li><a href="#" class="hover:text-white">Returns</a></li>
+            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h6 class="text-sm font-semibold text-gray-400 uppercase mb-4">
+            Subscribe to our Newsletter
+          </h6>
+          <p class="text-sm mb-4">
+            The latest news, articles, and resources, sent to your inbox weekly.
+          </p>
+
+          <div class="flex">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="px-4 py-2 w-full rounded-l-md bg-slate-500 border border-slate-700 focus:outline-none"
+            />
+            <button
+              class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-r-md transition"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+
+   
+      <div class="border-t border-slate-700">
+        <div
+          class="container mx-auto py-6 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-sm text-gray-400">
+            © 2025 SwiftCart, Inc. All rights reserved.
+          </p>
+
+      
+          <div class="flex space-x-5 mt-4 md:mt-0 text-gray-400">
+            <i class="fa-brands fa-facebook hover:text-white"></i>
+            <i class="fa-brands fa-twitter hover:text-white"></i>
+            <i class="fa-brands fa-instagram hover:text-white"></i>
+            <i class="fa-brands fa-linkedin hover:text-white"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
