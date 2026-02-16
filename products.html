@@ -68,7 +68,7 @@
           </div>
           <ul
             tabindex="-1"
-            class="menu menu-lg dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow  right-0"
+            class="menu menu-lg dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow right-0"
           >
             <li class="hover:text-blue-400 border-b"><a href="/">Home</a></li>
             <li class="hover:text-blue-400 border-b">
@@ -84,14 +84,17 @@
 
     <div class="py-10 bg-base-200 container px-3 md:mx-auto">
       <h1 class="text-3xl font-bold mb-8 text-center">Our Products</h1>
-      <div class="pb-6 flex justify-center gap-5">
-        <button class="btn rounded-2xl btn-outline">All</button>
-        <button class="btn rounded-2xl btn-outline">Men Cloth</button>
-        <button class="btn rounded-2xl btn-outline">Woman Cloth</button>
+      <div id="loadCategory" class="pb-6 flex justify-center gap-5">
+        <button onclick="loadProducts()" class="btn rounded-2xl btn-outline">
+          All
+        </button>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div class="card bg-base-100 shadow-md">
+      <div
+        id="loadProduct"
+        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8"
+      >
+        <!-- <div class="card bg-base-100 shadow-md">
           <figure class="bg-gray-100">
             <img
               src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -129,90 +132,12 @@
               </button>
             </div>
           </div>
-        </div>
-        <div class="card bg-base-100 shadow-md">
-          <figure class="bg-gray-100">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              class=""
-            />
-          </figure>
-
-          <div class="card-body">
-            <div class="flex justify-between items-center">
-              <span class="badge badge-soft badge-primary">
-                Men's Clothing
-              </span>
-              <span class="text-sm"
-                ><i
-                  class="fa-solid fa-star"
-                  style="color: rgba(255, 212, 59, 1)"
-                ></i>
-                <span>5 (100)</span></span
-              >
-            </div>
-
-            <h2 class="card-title text-base font-semibold">
-              Fjallraven - Foldsack No. 1 Backpack
-            </h2>
-
-            <p class="text-lg font-bold">$100</p>
-
-            <div class="flex gap-4">
-              <button class="btn btn-outline btn-sm flex-1">
-                <i class="fa-regular fa-eye"></i>
-                Details
-              </button>
-              <button class="btn btn-primary btn-sm flex-1">
-                <i class="fa-solid fa-cart-shopping"></i> Add
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="card bg-base-100 shadow-md">
-          <figure class="bg-gray-100">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              class=""
-            />
-          </figure>
-
-          <div class="card-body">
-            <div class="flex justify-between items-center">
-              <span class="badge badge-soft badge-primary">
-                Men's Clothing
-              </span>
-              <span class="text-sm"
-                ><i
-                  class="fa-solid fa-star"
-                  style="color: rgba(255, 212, 59, 1)"
-                ></i>
-                <span>5 (100)</span></span
-              >
-            </div>
-
-            <h2 class="card-title text-base font-semibold">
-              Fjallraven - Foldsack No. 1 Backpack
-            </h2>
-
-            <p class="text-lg font-bold">$100</p>
-
-            <div class="flex gap-4">
-              <button class="btn btn-outline btn-sm flex-1">
-                <i class="fa-regular fa-eye"></i>
-                Details
-              </button>
-              <button class="btn btn-primary btn-sm flex-1">
-                <i class="fa-solid fa-cart-shopping"></i> Add
-              </button>
-            </div>
-          </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
     <!-----------Footer---------->
-      <footer class="bg-slate-800 text-gray-300 px-5">
+    <footer class="bg-slate-800 text-gray-300 px-5">
       <div class="container mx-auto py-16 grid md:grid-cols-4 gap-10">
         <div>
           <h2 class="text-2xl font-bold text-indigo-400 mb-4">ItemCart</h2>
@@ -227,8 +152,10 @@
             Quick Links
           </h6>
           <ul class="space-y-2">
-            <li><a href="#" class="hover:text-white">Home</a></li>
-            <li><a href="#" class="hover:text-white">Products</a></li>
+            <li><a href="/" class="hover:text-white">Home</a></li>
+            <li>
+              <a href="/products.html" class="hover:text-white">Products</a>
+            </li>
             <li><a href="#" class="hover:text-white">About</a></li>
             <li><a href="#" class="hover:text-white">Contact</a></li>
           </ul>
@@ -286,5 +213,6 @@
         </div>
       </div>
     </footer>
+    <script src="app.js"></script>
   </body>
 </html>
