@@ -3,6 +3,11 @@ let loadProducts = () => {
     .then((res) => res.json())
     .then((data) => showProduct(data));
 };
+let loadCartProducts = () => {
+  fetch("https://fakestoreapi.com/products")
+    .then((res) => res.json())
+    .then((data) => cartProduct(data));
+};
 let loadTrendingProducts = () => {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
@@ -64,7 +69,7 @@ let showProduct = (products) => {
           <i class="fa-regular fa-eye"></i>
           Details
         </label>
-        <button class="btn btn-primary btn-sm flex-1">
+        <button onclick="addToCart(${id})" class="btn btn-primary btn-sm flex-1">
           <i class="fa-solid fa-cart-shopping"></i> Add
         </button>
       </div>
@@ -117,7 +122,7 @@ let productByCategory = (products) => {
           <i class="fa-regular fa-eye"></i>
           Details
         </label>
-        <button class="btn btn-primary btn-sm flex-1">
+         <button onclick="addToCart(${id})" class="btn btn-primary btn-sm flex-1">
           <i class="fa-solid fa-cart-shopping"></i> Add
         </button>
       </div>
@@ -166,7 +171,7 @@ let showModalProduct = (product) => {
         `;
 };
 let showTrending = (products) => {
-  let trending = products.filter((product) => product.rating.rate>4.6 );
+  let trending = products.filter((product) => product.rating.rate > 4.6);
   // console.log(trending)
   //  console.log(products);
   let loadTrendingProduct = document.getElementById("loadTrendingProduct");
@@ -200,7 +205,7 @@ let showTrending = (products) => {
           <i class="fa-regular fa-eye"></i>
           Details
         </label>
-        <button class="btn btn-primary btn-sm flex-1">
+        <button onclick="addToCart(${id})" class="btn btn-primary btn-sm flex-1">
           <i class="fa-solid fa-cart-shopping"></i> Add
         </button>
       </div>
@@ -209,7 +214,62 @@ let showTrending = (products) => {
         `;
     loadTrendingProduct.appendChild(div);
   }
-};;
+};
+
+let cart = [];
+let addToCart = (product) => {
+  cart.push(product);
+  console.log(cart);
+};
+let cartProduct = (products) => {
+  let loadProducts = products.filter((product) => cart.includes(product.id));
+  // console.log(loadProduct);
+    let loadProduct = document.getElementById("loadProduct");
+    loadProduct.textContent = "";
+    for (const product of loadProducts) {
+      //  console.log(product);
+      let { title, price, description, category, image, rating, id } = product;
+
+      let div = document.createElement("div");
+      div.innerHTML = `
+  <div class="card bg-base-100 shadow-md">
+    <figure class="bg-gray-100">
+      <img src="${image}" class="h-[300px]" />
+    </figure>
+
+    <div class="card-body h-[200px] md:h-[250px]">
+      <div class="flex justify-between items-center">
+        <span class="badge badge-soft badge-primary"> ${category} </span>
+        <span class="text-sm"
+          ><i class="fa-solid fa-star" style="color: rgba(255, 212, 59, 1)"></i>
+          <span>${rating.rate}(${rating.count})</span></span
+        >
+      </div>
+
+      <h2 class="card-title text-base font-semibold">${title}</h2>
+
+      <p class="text-lg font-bold">$${price}</p>
+
+      <div class="flex gap-4">
+        <label
+          onclick="modalView(${id})"
+          for="my_modal_6"
+          class="btn btn-outline btn-sm flex-1"
+        >
+          <i class="fa-regular fa-eye"></i>
+          Details
+        </label>
+         <button onclick="addToCart(${id})" class="btn btn-primary btn-sm flex-1">
+          <i class="fa-solid fa-cart-shopping"></i> Add
+        </button>
+      </div>
+    </div>
+  </div>
+        `;
+      loadProduct.appendChild(div);
+    }
+};
+
 loadCategories();
 loadProducts();
-loadTrendingProducts()
+loadTrendingProducts();
