@@ -26,8 +26,7 @@ let showCategories = (categories) => {
     let loadCategory = document.getElementById("loadCategory");
     let button = document.createElement("button");
     button.innerHTML = `
-     <button onclick="loadProductByCategory(\`${category}\`)" class="btn rounded-2xl btn-outline">${category}</button>
-           
+     <button onclick="loadProductByCategory(\`${category}\`)" class="btn rounded-2xl btn-outline">${category}</button>         
         `;
     loadCategory.appendChild(button);
   }
@@ -36,6 +35,10 @@ let showProduct = (products) => {
   // console.log(product);
   let loadProduct = document.getElementById("loadProduct");
   loadProduct.textContent = "";
+  let loadProducts = products.filter((product) => cart.includes(product.id));
+  // console.log(loadProduct);
+  cartSize = loadProducts.length;
+  cartProductNumber();
   for (const product of products) {
     //  console.log(product);
     let { title, price, description, category, image, rating, id } = product;
@@ -89,6 +92,10 @@ let loadProductByCategory = (category) => {
 let productByCategory = (products) => {
   let loadProduct = document.getElementById("loadProduct");
   loadProduct.textContent = "";
+  let loadProducts = products.filter((product) => cart.includes(product.id));
+  // console.log(loadProduct);
+  cartSize = loadProducts.length;
+  cartProductNumber();
   for (const product of products) {
     //  console.log(product);
     let { title, price, description, category, image, rating, id } = product;
@@ -139,8 +146,7 @@ let modalView = (id) => {
     .then((data) => showModalProduct(data));
 };
 let showModalProduct = (product) => {
-  console.log(product);
-
+  //console.log(product);
   let { title, price, description, category, image, rating, id } = product;
   document.getElementById("showModalData").innerHTML = `
   <div class="card bg-base-100 shadow-md">
@@ -162,6 +168,7 @@ let showModalProduct = (product) => {
       <div class="flex items-center">
       <p class="text-lg font-bold">$${price}</p>
       <div class="">
+      <div class="btn btn-primary">Buy Now</div>
       <label for="my_modal_6" class="btn">Close!</label>
     </div>
        </div>
@@ -174,6 +181,10 @@ let showTrending = (products) => {
   let trending = products.filter((product) => product.rating.rate > 4.6);
   // console.log(trending)
   //  console.log(products);
+  let loadProducts = products.filter((product) => cart.includes(product.id));
+  // console.log(loadProduct);
+  cartSize = loadProducts.length;
+  cartProductNumber();
   let loadTrendingProduct = document.getElementById("loadTrendingProduct");
   for (const product of trending) {
     //  console.log(product);
@@ -217,21 +228,27 @@ let showTrending = (products) => {
 };
 
 let cart = [];
+let cartSize = 0;
 let addToCart = (product) => {
   cart.push(product);
-  console.log(cart);
+  // console.log(cart);
 };
+console.log(cart);
+console.log(cartSize);
+
 let cartProduct = (products) => {
   let loadProducts = products.filter((product) => cart.includes(product.id));
   // console.log(loadProduct);
-    let loadProduct = document.getElementById("loadProduct");
-    loadProduct.textContent = "";
-    for (const product of loadProducts) {
-      //  console.log(product);
-      let { title, price, description, category, image, rating, id } = product;
+  cartSize = loadProducts.length;
+  cartProductNumber();
+  let loadProduct = document.getElementById("loadProduct");
+  loadProduct.textContent = "";
+  for (const product of loadProducts) {
+    //  console.log(product);
+    let { title, price, description, category, image, rating, id } = product;
 
-      let div = document.createElement("div");
-      div.innerHTML = `
+    let div = document.createElement("div");
+    div.innerHTML = `
   <div class="card bg-base-100 shadow-md">
     <figure class="bg-gray-100">
       <img src="${image}" class="h-[300px]" />
@@ -266,10 +283,15 @@ let cartProduct = (products) => {
     </div>
   </div>
         `;
-      loadProduct.appendChild(div);
-    }
+    loadProduct.appendChild(div);
+  }
 };
 
+let cartProductNumber = () => {
+  document.getElementById("cartNum").innerHTML = `
+          ${cartSize}
+        `;
+};
 loadCategories();
 loadProducts();
 loadTrendingProducts();
